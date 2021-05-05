@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% block  main-content %}
+
+
+<h2 class="text-center"> Refral code to join..</h2>
+
+<form method='get' action= "{% url 'search' %}" class="text-center" >
+				      <i class="fas fa-search mr-auto"></i>
+            <div class="text-center">
+                <input class="search-box"  name='search' placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-0" type="submit"  >Search</button>
+            </div><br><br><br>
+
+
+<button class="btn btn-outline-success my-0" type="submit" href="withoutcode" >Don't have code</button>
+</form>
+<br><br><br><br><br>?
+
+{% endblock main-content%}
+
+
+

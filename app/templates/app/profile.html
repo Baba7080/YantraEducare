@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Address{% endblock title %}
+{% block main-content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-3 mt-5">
+            <!-- <img class="gb_Ia gbip gb_fb my-4" src="{% static 'app/images/baraatimages/edu.png'%} " style="height: 50%%; width: 40%;" > -->
+            <img class="rounded-circle account-img mt-5" src="{{ request.user.profile.image.url }}" alt="pic" style="height: 70%; width: 55%;">
+
+            <a href="{% url 'updation' %}"><svg class="gb_lb" enable-background="new 0 0 24 24" focusable="false" height="26" viewBox="0 0 24 24" width="18" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M20 5h-3.17L15 3H9L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14H4V7h16v12zM12 9c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></svg></a>
+            
+        </div>
+    </div>
+    <div class="media">
+        <!-- <img class="rounded-circle account-img" src="{{ request.user.profile.image.url }}"> -->
+        
+        
+      </div>
+
+
+ <div class="row">
+    <div><h3>Welcome {{request.user}}</h3>
+          <h4>Roll - {{request.user.profile.Category}}</h4></div><br>
+
+  <div class="col-sm-2 border-end">
+    
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'dashbord' %}" class="btn ">Dashboard</a></li>
+    <li class="d-grid"><a href="{% url 'profile' %}" class="btn {{active}}">Profile</a></li>
+    <li class="d-grid"><a href="{% url 'address' %}" class="btn ">Address</a></li>
+    <li class="d-grid"><a href="{% url 'accdetail' %}" class="btn ">Account Details</a></li>
+    <li class="d-grid"><a href="{% url 'listing' %}" class="btn ">List</a></li>
+    <li class="d-grid"><a href="{% url 'gallery' %}" class="btn  ">Gallery</a></li>
+    <li class="d-grid"><a href="{% url 'training' %}" class="btn ">Training</a></li>
+
+    
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+   <div class="row">
+
+    <p id="p1">www.yantraeducare.com/{{user.profile.code}}/
+
+    <button onclick="copyToClipboard('#p1')"><i class="far fa-copy"></i></button> </p><br>
+    <h3>UserCode-- {{user.profile.code}}</h3>
+{% for ad in add %}
+    <div class="col-sm-4 my-1">
+     <div class="card" >
+      <div class="card-body">
+       <h3>Address {{forloop.counter}}</h3>
+       <p>Name: {{ad.name}}</p>
+       <p>Locality: {{ad.locality}}</p>
+       <p>City: {{ad.city}}</p>
+       <p>State: {{ad.state}}</p>
+       <p>Pin Code: {{ad.zipcode}}</p>
+        <br>
+
+      </div>
+     </div>
+    </div>
+{% endfor %}
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
