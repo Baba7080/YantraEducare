@@ -6,7 +6,14 @@ from .models import (
     OrderPlaced,
     Profile,
     AccountDetails,
-    videopost
+    videopost,
+    Quiz,
+    Questions,
+    Answer,
+    Result,
+    Course,
+    CourseModule,
+    payment_refral
 )
 
 # Register your models here.
@@ -37,3 +44,16 @@ class AccountDetailsModelAdmin(admin.ModelAdmin):
   
 
 admin.site.register(videopost)
+admin.site.register(Quiz)
+admin.site.register(Result)
+class AnswerInline(admin.TabularInline):
+    model = Answer
+
+class QuestionsAdmin(admin.ModelAdmin):
+    inlines = [AnswerInline]
+
+admin.site.register(Questions, QuestionsAdmin)
+admin.site.register(Answer)
+admin.site.register(Course)
+admin.site.register(CourseModule)
+admin.site.register(payment_refral)

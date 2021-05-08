@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}payment{% endblock title %}
+{% block main-content %}
+
+<div class="container col-sm-6 my-5">
+{% for i in affiliate %}
+<center>
+
+ <div class="card" style="width: 30rem; height: 15rem">
+                          <div class="card-body">
+                         
+                            <h5 class="card-title"> Affiliate Income<a><span class="badge bg-danger"><i class="fas fa-wallet"></i>{{i.new_payment}}</span></a> <br><br>{{i.new_payment.user}}</h5>
+                            <p class="card-text">With Your given refral code we found username <a href=''>{{i.user}}</a>, if its correct please register</p>
+                            <a href="registration" class="btn btn-primary">Create Account</a>
+                            <a href="{% url 'customerregistration' %}">
+            <button class="btn btn-primary">Create an Account</button>
+        </a>
+                          </div>
+                    </div>
+                    {% comment %} <img class="card-img-top"  src="{{ prof.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                    <p class="card-text"><div class="media-body">
+                    <h2 class="account-heading"> {{prof.user}}</h2> {% endcomment %}
+                    </div>.</p>
+                    </div>
+                </div>
+
+
+
+    
+
+{% endfor %}
+{% for p in pro %}
+ <div class="card" style="width: 30rem; height: 15rem">
+    <div class="card-body">
+                         
+                            <h5 class="card-title"> Affiliate Income<a><span class="badge bg-danger"><i class="fas fa-wallet"></i>{{p.affiliate_income}}</span></a> <br><br>{{i.new_payment.user}}</h5>
+                            <p class="card-text">With Your given refral code we found username <a href=''>{{i.user}}</a>, if its correct please register</p>
+                            <a href="registration" class="btn btn-primary">Create Account</a>
+                            <a href="{% url 'customerregistration' %}">
+                             <button class="btn btn-primary">Create an Account</button>
+                             </a>
+    </div>
+    </div>
+                    {% comment %} <img class="card-img-top"  src="{{ prof.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                    <p class="card-text"><div class="media-body">
+                    <h2 class="account-heading"> {{prof.user}}</h2> {% endcomment %}
+                    </div>.</p>
+                    </div>
+                </div>
+    <div>
+    {% comment %} <a><span class="badge bg-danger"><i class="fas fa-wallet"></i>{{p.affiliate_income}}</span></a> {% endcomment %}
+    </div>
+
+  
+    
+    
+
+{% endfor %}
+
+</center>
+</div>
+
+
+
+
+{% endblock main-content %}

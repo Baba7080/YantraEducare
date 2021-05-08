@@ -11,7 +11,7 @@ from django.core.mail import EmailMessage,send_mail
 
 
 from django.views import View
-from .models import Customer, Product, Cart, OrderPlaced, Profile, AccountDetails,videopost
+from .models import Customer, Product, Cart, OrderPlaced, Profile, AccountDetails,videopost,Quiz,Course,CourseModule, payment_refral
 from .forms import CustomerRegistrationForm, CustomerProfileform, Accountform,UserUpdateForms,ProfileUpdateForm,Categoryselection
 from django.contrib import messages
 from django.db.models import Q
@@ -623,3 +623,129 @@ def training(request):
             print("None")
     
     return render(request, 'app/training.html',{'my_vid': my_vid ,'active':'btn-primary' })
+
+
+
+# purchasing the subscription
+def course_home(request):
+    s = request.user.profile.Category
+    print("s",s)
+
+    courses = Course.objects.filter(category = request.user.profile.Category)
+    # if 
+    # p = Course.objects.get.GET(category)
+    # print("P",p)
+    print("courses---",courses)
+    course = Course.objects.all()
+    context = {'courses': courses}
+    for i in course:
+        print("categori",i.category)
+    if request.user.is_authenticated:
+        profile = Profile.objects.filter(user=request.user).first()
+        request.session['profile'] = profile.is_pro
+        print("profile.is_pro",profile.is_pro)
+    return render(request, 'app/course_home.html',context)
+
+def view_course(request, slug):
+    
+    course = Course.objects.filter(slug =slug).first()
+    course_modules = CourseModule.objects.filter(course=course)
+    context = {'course':course , 'course_modules':course_modules}
+    return render(request, 'app/course.html' , context)
+
+    # course = Course.objects.filter(category = slug).first()
+    # print("course",course)
+    # course_modules = CourseModule.objects.filter(course = course)
+    # print("course_modules",course_modules)
+    # context = {'course':course , 'course_modules':course_modules}
+    # return render(request , 'app/course.html',context)
+def become_pro(request):
+    profile = Profile.objects.filter(user = request.user).first()
+    print("Profile ",profile)
+    if request.method == 'POST':
+        membership = request.POST.get('membership' , 'MONTHLY')
+        amount = 1000
+        if membership == 'YEARLY':
+            amount = 11000
+        stripe.api_key = 'sk_test_qu7ivgHp9WRHlHJjs2QHugIA00hKFbC5qc'
+        # stripe.api_key = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+
+        customer = stripe.Customer.create(
+            email = "abhijeetg40@gmail.com",
+			name=request.user.username,
+            source=request.POST['stripeToken']
+			)
+            
+        charge = stripe.Charge.create(
+			customer=customer,
+			amount=amount,
+			currency='inr',
+			description="Membership",
+		)
+        print("charge")
+        print(charge['amount'])
+        if charge['paid'] == True:
+            charr = []
+            amount_ref = payment_refral.objects.filter(user = request.user).first()
+            print('amount_ref',amount_ref)
+            profile = Profile.objects.filter(user = request.user).first()
+            # rec = Profile.objects.filter(user=recommended_by)
+            rec = request.user.profile.recommended_by
+
+            affi_profile = Profile.objects.filter(user = request.user.profile.recommended_by).first()
+
+            print("afiillllll",affi_profile)
+            print("recommended_by",rec)
+            
+            # recom_user = Profile.objects.filter(recommended_by = recommended_by)
+            # print("recomended user ",recom_user)
+            if charge['amount'] == 100000:
+                profile.subscription_type = 'M'
+                profile.is_pro = True
+                expiry = datetime.now() + timedelta(30)
+                profile.pro_expiry_date = expiry
+                
+
+                profile.save()
+                amount_ref.save()
+            elif charge['amount'] == 110000:
+                profile.subscription_type = 'Y'
+                profile.is_pro = True
+                expiry = datetime.now() + timedelta(365)
+                profile.pro_expiry_date = expiry
+                profile.save()
+                amount_ref.save()
+            # affiliate profile income genertion
+            print("charge['amount']",charge['amount'])
+            amount_ref.new_payment = charge['amount']
+            affilate = ((5*charge['amount'])/100)
+            print("affilate------",affilate)
+            after_ad = affi_profile.affiliate_income + affilate
+            print("after_ad",after_ad)
+            print("sab",affi_profile.affiliate_income)
+            affi_profile.affiliate_income = after_ad
+            print("hope done")
+            affi_profile.save()
+            print("saved----------")
+            # login user income that has been done
+      
+        print("ho gya  ")
+
+        return redirect('/charge/')
+   
+    return render(request, 'app/become_pro.html')
+
+def charge(request):
+    return render(request, 'app/charge.html')
+
+def payment_listing(request):
+    # us = request.user
+    pro = Profile.objects.filter(user = request.user)
+    affiliate = payment_refral.objects.filter(user = request.user)
+    print(charging)
+    
+    context = {
+        "pro":pro,
+        'affiliate':affiliate
+    }
+    return render(request, "app/payment.html", context)

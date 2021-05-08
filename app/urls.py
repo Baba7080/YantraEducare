@@ -19,7 +19,12 @@ urlpatterns = [
     path('detail/<int:pk>/',detail_view.as_view(),name='detail'),  
     path('category/',views.cat_sel,name='category'),
     path('training/',views.training,name='training'),
-
+    # path('send_mail/', views.send_mail, name='send_mail'),
+    path('course_home/', views.course_home, name='course_home'),
+    path('course/<slug>/', views.view_course, name='course'),
+    path('become_pro/', views.become_pro, name='become_pro'),
+    path('charge/' , views.charge , name="charge"),
+    path('payment/',views.payment_listing,name='payment'),
 #CART START
     #aboutus
     path('aboutus/',views.aboutpage,name='aboutus'),
