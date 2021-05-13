@@ -25,6 +25,7 @@ urlpatterns = [
     path('become_pro/', views.become_pro, name='become_pro'),
     path('charge/' , views.charge , name="charge"),
     path('payment/',views.payment_listing,name='payment'),
+    path('success/',views.success_mail,name='success'),
 #CART START
     #aboutus
     path('aboutus/',views.aboutpage,name='aboutus'),

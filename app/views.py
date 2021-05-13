@@ -26,7 +26,9 @@ from django.conf import settings
 
 import random
 
-
+import time 
+import datetime as dt
+from datetime import datetime, timedelta
 
 def profile_gallery(request):
     # if request.method == 'POST':
@@ -54,7 +56,65 @@ def aboutpage(request):
 
 
 
+def send_mail(request):
+    all = Profile.get_all_mail()
+    if request.method =="POST":
+        data = Profile.get_all_mail()
+        print(data)
+        list_of_emails = list(data)
+        print(list_of_emails)
+        form = time_mail_sender(request.POST)
+        if form.is_valid():
+            s=form['hour']
+            print("s",s)
+            form.save()
+            unix = int(time.time())
+            
+            year = form.cleaned_data.get('year')
+            month = form.cleaned_data.get('month')
+            date = form.cleaned_data.get('date')
+            hour = form.cleaned_data.get('hour')
+            minutes = form.cleaned_data.get('minutes')
+            sec = form.cleaned_data.get('sec')
+            tt = time_mail.objects.all().last()
+            stt = dt.datetime(year,month,date,hour,minutes,sec)
+            x = stt.timestamp()-unix
+            print("xxxxx",x)
+        try:
+            print("startttttttttt")
+            server = sm.SMTP("smtp.gmail.com", 587)
+            server.starttls()
+            server.login("yantraimmigration2@gmail.com","biiaxlfnfarhtrxw")
+            from_ = "yantraimmigration2@gmail.comss"
+            to_ = list_of_emails
+            message = MIMEMultipart("alternative")
+            message['subject'] = request.POST['subject']
+            message['from'] = "Yantraeducare"
 
+            # html = '''
+
+            # <head>
+            # <body>
+
+            # here you message will be in html form
+            # </body>
+            # </head>
+
+            # '''
+            html = request.POST['message']
+            text = MIMEText(html, "html")
+            message.attach(text)
+            print("sending..............wait for",x,"seconds ")
+            p = time.sleep(x)
+            server.sendmail(from_, to_, message.as_string())
+            print("send")
+
+
+        except Exception as e:
+            print(e)
+        print("done1")
+        print("some")
+    return render(request, 'app/send_mail.html',{'form':form})
 
 #signup
 def CustomerRegistrationView(request):
