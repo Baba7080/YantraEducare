@@ -14,25 +14,21 @@
  <h2>topwears</h2>
  <!-- Slider 2 -->
  <div class="owl-carousel" id="slider2">
-  {% for ad in school %}
-  <div class="col-sm-9 my-5">
-   <div class="card" style="width: 18rem;">
-      <div class="card-body d-block w-100 " style='height: 500px; width: 40px;'>
-        {% comment %} <p>Image: <img class="rounded-circle account-img" src="{{ad.image.url}}" style="height": 70%; width: 55%;></p> {% endcomment %}
-        <h3> {{forloop.counter}}</h3>
+      <div class="col-sm-4 my-1">
+     <div class="card" >
+      <div class="card-body">
+       <h3>Address {{forloop.counter}}</h3>
         <p>Image: <img  src="{{ad.class_pic1.url}}" class="d-block w-100" style="height": 70%; width: 55%;></p>
         <a href={% url 'school_home' ad.pk %}><center>School_name : <h5><p>{{ad.School_name}}</p></h5></center><a>
         <p>City: {{ad.city}}</p>
         <p>{{ad.school_admin}}</p>
-        {% comment %} <p>Second_Name: {{ad.Second_Name}}</p>
-        <p>Bio: {{ad.bio}}</p>
-        <p>Email: {{ad.user.email}}</p> {% endcomment %}
-          <br>
+        <br>
+
       </div>
+     </div>
     </div>
-  </div>
 {% endfor %}
- </div>
-</div>
+ {% comment %} </div>
+</div> {% endcomment %}
  <!-- End 3rd Product Slider -->
 {% endblock main-content %}
