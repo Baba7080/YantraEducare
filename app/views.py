@@ -12,7 +12,7 @@ from django.core.mail import EmailMessage,send_mail
 
 from django.views import View
 from .models import Customer, Product, Cart, OrderPlaced, Profile, AccountDetails,videopost,Quiz,Course,CourseModule, payment_refral
-from .forms import CustomerRegistrationForm, CustomerProfileform, Accountform,UserUpdateForms,ProfileUpdateForm,Categoryselection
+from .forms import CustomerRegistrationForm, CustomerProfileform, Accountform,UserUpdateForms,ProfileUpdateForm,Categoryselection,SchoolForm,school_dashbored_form
 from django.contrib import messages
 from django.db.models import Q
 from django.http import JsonResponse
@@ -30,6 +30,34 @@ import time
 import datetime as dt
 from datetime import datetime, timedelta
 
+from quiz.models import schoo_dashbored
+
+
+def school_form(request):
+    if request.method == "POST":
+        form = school_dashbored_form(request.POST)
+        
+            # s_form = SchoolForm(request.POST,instance=request.user)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('school_form')
+            except:
+                pass
+            messages.success(request,f'Your Account Has Been Updated')
+            print("valid")
+            return redirect('school_form')
+
+    else:
+        form = school_dashbored_form(request.POST,instance=request.user)
+
+    return render(request, 'app/senddd/school_updation.html',{"form":form})
+def all_school(request):
+    school =  schoo_dashbored.objects.all()
+    return render(request, 'app/all_scholl.html',{'school':school})
+class school_home(DetailView):
+    model = schoo_dashbored
+    template_name = 'app/senddd/school_home.html'
 def profile_gallery(request):
     # if request.method == 'POST':
     #     img = GalleryForm(request.POST, request.FILES)
@@ -51,6 +79,52 @@ class detail_view(DetailView):
 #     return render(request, 'app/udation.html')
 
 #about us
+
+def schoolInfo(request):
+    profile = Profile.objects.all()
+    v =request.user.profile.Category
+    print("DDDDDDDDd",v)
+    if request.method == 'GET':
+        s_form = SchoolForm()
+        context ={
+            's_form':s_form,
+            'active':'btn-primary'
+        }
+        print('gettttt--')
+        return render(request,'app/updation_school.html',context)
+    if request.method =='POST':
+            s_form = SchoolForm(request.POST,instance=request.user)
+            if s_form.is_valid():
+                s_form.save()
+                messages.success(request,f'Your Account Has Been Updated')
+                print("valid")
+                return redirect('school_info')
+
+    else:
+        u_form = UserUpdateForms(instance=request.user)
+        s_form = SchoolForm(request.POST,instance=request.user)
+        p_form =  ProfileUpdateForm(instance=request.user.profile)
+    context = {
+                # 'u_form' : u_form,
+                's_form':s_form,
+            
+                }
+    return render(request, 'app/updation_school.html',context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def aboutpage(request):
     return render(request, 'app/aboutus.html')
 

@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block main-content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <form method ='POST' enctype='multipart/form'>
+                {% csrf_token %}
+            <fieldset class="form-group">
+                {{form|crispy}}
+                {% comment %} {{school_pic_form|crispy}} {% endcomment %}
+
+
+        </fieldset><br>
+        <button class="btn-outline info" type="submit">Update</button>
+
+     </form>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
+

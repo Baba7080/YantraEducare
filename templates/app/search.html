@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+            {% for prof in User %}
+            
+             <div class="card" style="width: 18rem;">
+             {% csrf_token %}
+               {{user.username}}
+               {{user.pk}}
+               {{user.City}}
+                {% comment %} <img class="card-img-top"  src="{{ prof.image.url }}" alt="Card image cap">
+                <div class="card-body">
+                <p class="card-text"><div class="media-body">
+                <h2 class="account-heading"> {{prof.user}}</h2> {% endcomment %}
+                </div>.</p>
+                </div>
+             </div>
+            
+           {% endfor %}
+{% endblock %}

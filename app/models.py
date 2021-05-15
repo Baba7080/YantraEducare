@@ -190,6 +190,11 @@ class Profile(models.Model):
     pro_expiry_date = models.DateField(null=True, blank=True)
     subscription_type = models.CharField(max_length=100 , choices=SUBSCRIPTION , default='FREE')
     affiliate_income = models.PositiveIntegerField(default=0)
+    Principal = models.CharField(max_length=20,default='Principal')
+    manager = models.CharField(max_length=20,default='manager')
+    city_of_school = models.CharField(max_length=20,default="City")
+
+    
     def __str__(self):
         return f"{self.user.username}-{self.code}"
 

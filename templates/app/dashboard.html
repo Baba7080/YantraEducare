@@ -1,0 +1,60 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Password Reset Complete{% endblock title %}
+{% block main-content %}
+<div class="container ">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="gb_Ia gbip gb_fb my-4" src="{% static 'app/images/baraatimages/edu.png' %} " style="height: 50%%; width: 40%;" >
+            <svg class="gb_lb" enable-background="new 0 0 24 24" focusable="false" height="26" viewBox="0 0 24 24" width="18" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M20 5h-3.17L15 3H9L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14H4V7h16v12zM12 9c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></svg>
+            
+        </div>
+    </div>
+
+
+    <div class="row">
+        <h3>Welcome {{request.user}}</h3>
+        {{ request.user.code }}
+            <div class="col-sm-2 border-end">
+                <ul class="list-unstyled">
+                    <li class="d-grid"><a href="{% url 'profile' %}" class="btn ">Profile</a></li>
+                    <li class="d-grid"><a href="{% url 'address' %}" class="btn ">Address</a></li>
+                    <li class="d-grid"><a href="{% url 'accdetail' %}" class="btn ">Account Details</a></li>
+                    <li class="d-grid"><a href="{% url 'dashbord' %}" class="btn {{active}}">Dashboard</a></li>
+                    <li class="d-grid"><a href="{% url 'listing' %}" class="btn">List</a></li>
+                    <li class="d-grid"><a href="{% url 'updation' %}" class="btn">List</a></li>
+                    <li class="d-grid"><a href="{% url 'gallery' %}" class="btn ">Gallery</a></li>
+                    <li class="d-grid"><a href="{% url 'course_home' %}" class="btn ">course_home</a></li>
+
+                </ul>
+            </div>
+            
+            <div class="col-sm-9 offset-sm-1">
+                <div class="row">
+                    <h1>Your Dashboard</h1>
+                    {% for ad in add %}
+                            <div class="col-sm-4 my-1">
+                            <div class="card">
+                            <div class="card-body">
+                            <h3>Progress {{forloop.counter}}</h3>
+                            <p>Name: {{ad.name}}</p>
+                            <p>Your Progress is yet not
+                                <br>Started, Please Start
+                            </p>
+                                <br>
+                            <a href="#"><input type="submit" value="Track" class="btn btn-danger my-2"></a>
+                            <a href="#"><input type="submit" value="Training" class="btn btn-success"></a>
+                            </div>
+                            </div>
+                            </div>
+                    {% endfor %}
+
+                </div>    
+            </div>    
+             
+    </div>
+</div>
+    
+
+{% endblock main-content %}

@@ -5,8 +5,18 @@ from django.utils.translation import gettext, gettext_lazy as _
 from django.contrib.auth import password_validation
 from .models import Customer, AccountDetails,Profile
 from django.forms import TextInput
+from quiz.models import schoo_dashbored
 
 
+
+class SchoolForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['Principal','manager','city_of_school']
+class school_dashbored_form(forms.ModelForm):
+    class Meta:
+        model = schoo_dashbored
+        fields = "__all__"
 #Registration Form
 class CustomerRegistrationForm(UserCreationForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class':"form-control"}))

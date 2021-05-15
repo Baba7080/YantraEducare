@@ -1,0 +1,37 @@
+
+
+
+<html>
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Address{% endblock title %}
+{% block main-content %}
+        <head>
+                <meta charset="utf-8">
+                <title>Editor</title>
+                <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+        </head>
+        <body>
+        <form method="post" action="{% url 'send_mail' %}">
+        {% csrf_token %}
+         {{form|crispy }}
+        <textarea name="subject" placeholder="subject......"></textarea><br>
+        <textarea name="message" placeholder="Message......"></textarea>
+        <input type="submit" />
+        </form>
+
+            {% comment %} <form method="post" action="{% url 'send_mail' %}">
+            {% csrf_token %}
+                <textarea name="editor2"></textarea>
+                <textarea name="editor1"></textarea>
+                <input type="submit" />
+            </form> {% endcomment %}
+                <script>
+                        CKEDITOR.replace( 'message' );
+                </script>
+        </body>
+
+
+{% endblock main-content %}
+</html>

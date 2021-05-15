@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}reference{% endblock title %}
+{% block main-content %}
+
+<div class="container col-sm-6 my-5">
+    {% if request.user.is_authenticated %}
+        {{request.user}}
+    {% else %}
+        {% for prof in User %}
+                
+                 <div class="card" style="width: 30rem; height: 15rem">
+                          <div class="card-body">
+                            <h5 class="card-title"> code - {{i.code}}<br><br>{{i.user}}</h5>
+                            <p class="card-text">With Your given refral code we found username <a href=''>{{i.user}}</a>, if its correct please register</p>
+                            <a href="registration" class="btn btn-primary">Create Account</a>
+                            <a href="{% url 'customerregistration' %}">
+            <button class="btn btn-primary">Create an Account</button>
+        </a>
+                          </div>
+                    </div>
+                    {% comment %} <img class="card-img-top"  src="{{ prof.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                    <p class="card-text"><div class="media-body">
+                    <h2 class="account-heading"> {{prof.user}}</h2> {% endcomment %}
+                    </div>.</p>
+                    </div>
+                </div>
+                
+        {% endfor %}
+        <div class="card" style="width: 30rem; height: 15rem">
+                          <div class="card-body">
+                            <h5 class="card-title"> code - {{i.code}}<br><br>{{i.user}}</h5>
+                            <p class="card-text">With Your given refral code we found username <a href=''>{{i.user}}</a>, if its correct please register</p>
+                            <a href="registration" class="btn btn-primary">Create Account</a>
+                            <a href="{% url 'customerregistration' %}">
+            <button class="btn btn-primary">Create an Account</button>
+        </a>
+                          </div>
+                    </div>
+    {% endif %}
+</div>
+
+{% endblock main-content %}

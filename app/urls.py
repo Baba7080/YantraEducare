@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 from .forms import LoginForm, MyPasswordChangeForm, MyPasswordResetForm, MySetPasswordForm
-from .views import CustomerRegistrationView,detail_view
+from .views import CustomerRegistrationView,detail_view,school_home
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -25,7 +25,12 @@ urlpatterns = [
     path('become_pro/', views.become_pro, name='become_pro'),
     path('charge/' , views.charge , name="charge"),
     path('payment/',views.payment_listing,name='payment'),
-    path('success/',views.success_mail,name='success'),
+    path('schoolInfo/',views.schoolInfo,name='schoolInfo'),
+    path('school_home/<int:pk>',school_home.as_view(),name='school_home'),
+    path('school_form/',views.school_form,name='school_form'),
+    path("all_school",views.all_school,name='all_school'),
+
+    # path('success/',views.success_mail,name='success'),
 #CART START
     #aboutus
     path('aboutus/',views.aboutpage,name='aboutus'),

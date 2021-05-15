@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Profile{% endblock title %}
+{% block main-content %}
+
+
+    <div class="container mt-4" >
+        <img src="{% static 'app\images\lmsimage.jpg' %}" height="200px" width="300px"  style="box-shadow: 5px 5px 5px grey; margin-left:33%;">
+
+        <div class="row mt-4">
+
+            <div class="col-lg-4">
+                <img src="{% static 'app\images\admin.png' %}" height="100px" width="100px" style="box-shadow: 5px 5px 5px grey; margin-left:25%; display: block;">
+                <a href="{% url 'school' %}"><button class="btn btn-primary mt-3" style="margin-left: 22%; display: block;">School/Institute Signup</button></a>
+                <a href="{% url 'login' %}"><span class="mt-2" style="margin-left: 22%;">I Have an Account</span></a>
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static 'app\images\agent.png' %}" height="100px" width="100px" style="box-shadow: 5px 5px 5px grey; margin-left:25%;">
+                <a href="{% url 'login' %}"><button class="btn btn-primary mt-3" style="margin-left: 22%; display: block;">Agent Signup</button></a>
+                <a href="{% url 'login' %}"><span class="mt-2" style="margin-left: 22%;">I Have an Account</span></a>
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static 'app\images\customer.png' %}" height="100px" width="100px" style="box-shadow: 5px 5px 5px grey; margin-left:25%;">
+                <a href="{% url 'refral_code' %}"><button class="btn btn-primary mt-3" style="margin-left: 22%; display: block;">Customer Signup</button></a>
+                <a href="{% url 'login' %}"><span class="mt-2" style="margin-left: 22%;">I Have an Account</span></a>
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}
