@@ -28,7 +28,18 @@
                     <li class="d-grid"><a href="{% url 'gallery' %}" class="btn  ">Gallery</a></li>
                     <li class="d-grid"><a href="{% url 'training' %}" class="btn ">Training</a></li>
                     <li class="d-grid"><a href="{% url 'course_home' %}" class="btn ">course_home</a></li>
-
+                    {% if request.user.is_superuser %}
+                        <li class="d-grid"><a href="{% url 'send_mail' %}" class="btn ">send_mail</a></li>
+                        
+                        {% else %}
+                        {% endif %}
+                        {% for i in maill %}
+                                {% if i.Category == 'STUDENT' or 'TEACHER' or 'Institute' %}
+                                        <li class="d-grid"><a href="{% url 'schoolInfo' %}" class="btn ">School/Institute Info</a></li>
+                                {% else %}
+                                {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </ul>
             </div>
         <div class="col-sm-9 offset-sm-1">
