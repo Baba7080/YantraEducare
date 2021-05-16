@@ -715,6 +715,28 @@ def TermsandConditions(request):
 
 # @login_required
 def cat_sel(request):
+    def senf():
+        user = request.user.username
+        to_email = request.user.email
+
+        
+
+            
+        mail_subject = 'Activate your blog account.'
+        message = render_to_string('app/sms.html', {
+                        'user': user,
+                        'to_email':to_email,
+                    })
+
+            print('starttttt')
+        email = EmailMessage(
+                                mail_subject, message, to=[to_email]
+            )
+        email.send()
+
+    
+    t = Timer(30 , senf)
+    t.start()
 
     if request.method =='POST':
             c_form = Categoryselection(request.POST, instance = request.user.profile)
