@@ -32,6 +32,7 @@ from datetime import datetime, timedelta
 
 from quiz.models import schoo_dashbored
 
+from threading import Timer
 
 def school_form(request):
     if request.method == "POST":
