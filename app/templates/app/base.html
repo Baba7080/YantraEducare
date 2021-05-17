@@ -1,229 +1,258 @@
-<!doctype html>
+<!DOCTYPE html>
+
 {% load static %}
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+Template Name: Siopp
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>YantraEduCare| {% block title %} {% endblock title %} </title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <!--Owl Carousel CSS-->
-    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+<link href="{% static 'layout/styles/layout.css'%}" rel="stylesheet" type="text/css" media="all">
 
-    <!--FontAwesome CSS-->
-    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+<!--Owl Carousel CSS-->
+<link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+<!--FontAwesome CSS-->
+<link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+<!--Custom CSS-->
+<link rel="stylesheet" href="{% static 'app/css/style.css' %}">
 
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'app/css/custom.css' %}">
 
-
-    <title>YantraEduCare| {% block title %} {% endblock title %} </title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg" >
-     <div class="container">
-      <a class="navbar-brand" href="/"><img src="{% static 'app/images/baraatimages/edu.png' %}" height="45px" width="50px" alt="error"></a>
-       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-       </button>
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-           <li class="nav-item">
-             <a class="nav-link active" aria-current="page" href="/">Home</a>
-           </li>
-           <li class="nav-item dropdown">
-            <a class="nav-link  text-white" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Courses
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
-              <li><a class="dropdown-item" href="{% url 'mobile' %}">Courses</a></li>
-              <li><a class="dropdown-item" href="#">Materials</a></li>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded" style="background-image:url('images/demo/backgrounds/01.png');"> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper overlay row0">
+    <div id="topbar" class="hoc clear">
+      <div class="fl_left"> 
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <li><i class="fas fa-phone rgtspace-5"></i>  +91 6399011111<br>
+                                                        +91 6399550000</li>
+          <li><i class="far fa-envelope rgtspace-5"></i>info@yantraeducare.com</li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+      <div class="fl_right"> 
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+          <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
+          <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+          <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+          <li id="searchform">
+            <div>
+              <form action="#" method="post">
+                <fieldset>
+                  <legend>Quick Search:</legend>
+                  <input type="text" placeholder="Enter search term&hellip;">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left"> 
+        <!-- ################################################################################################ -->
+        <h1 class="logoname"><a href="index.html">YantraEdu<span>Care</span></a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right"> 
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a class="drop" href="#">Pages</a>
+            <ul>
+              <li><a href="{% static 'pages/gallery.html'%}">Gallery</a></li>
+              <li><a href="{% static 'pages/full-width.html'%}">Full Width</a></li>
+              <li><a href="{% static 'pages/sidebar-left.html'%}">Sidebar Left</a></li>
+              <li><a href="{% static 'pages/sidebar-right.html'%}">Sidebar Right</a></li>
+              <li><a href="{% static 'pages/basic-grid.html'%}">Basic Grid</a></li>
+              <li><a href="{% static 'pages/font-icons.html' %}">Font Icons</a></li>
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Photos</a>
+
+
+          {% comment %} <li><a class="drop" href="#">Dropdown</a>
+            <ul>
+              <li><a href="#">Level 2</a></li>
+              <li><a class="drop" href="#">Level 2 + Drop</a>
+                <ul>
+                  <li><a href="#">Level 3</a></li>
+                  <li><a href="#">Level 3</a></li>
+                  <li><a href="#">Level 3</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Level 2</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Blogs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'aboutus' %}">About-Us</a>
-            <!-- <a href="{% url 'aboutus'%}"><p class="text-decoration-none av-link active" aria-current="page">About-Us</p></a> -->
-          </li>
-           
-      
-         </ul>
-         <form class="d-flex">
-           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-           <button class="btn btn-warning" type="submit">S</button>
-         </form>
-         <div>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li><a href="{% static 'profile' %}">Link Text</a></li>
+          <li><a href="#">Link Text</a></li>
+          <li><a href="#">Link Text</a></li>
+        </ul> {% endcomment %}
         {% if request.user.is_authenticated %}
-           <li class="nav-item dropdown mx-2">
-              <a class="nav-link  text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{request.user.username|capfirst}}
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+        <li><a class="drop" href="#">{{request.user.username|capfirst}}</a>
+            <ul>
                 <li><a class="dropdown-item" href="{% url 'profile' %}">My Account</a></li>
-                <li><a class="dropdown-item" href="{% url 'all_school' %}">School List</a></li>
                 <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
                 <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-              </ul>
-            </li>
-       
-            <li class="nav-item mx-2">
-             <a href="{% url 'showcart' %}" class="nav-link text-white"><span class="badge bg-danger"><i class="fas fa-shopping-cart"></i></span> Cart </a>
-            </li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li> 
+            </ul>
+        </li>
         {% else %}
-        <li>
-          <a class="nav-link text-white" href="{% url 'login' %}" id="electronicsDropdown" role="button"   aria-expanded="false">
-            Login
-          </a>
-
-        </li>
-
-        <li >
-          <a class="nav-link  text-white" href="{% url 'refral_code' %}" id="electronicsDropdown" role="button"  aria-expanded="false">
-            Registration
-          </a>
-
-        </li>
-            
+            <li><a href ="{% url 'login' %}">Login</a></li>
+            <li><a href ="{% url 'customerregistration' %}">Registration</a></li>
         {% endif %}
-          </ul>
-         </div>
-       </div>
-     </div>
-    </nav>
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+  </div>
+
+
+
+
+
+
     {% block banner_slider %} {% endblock banner_slider %}
     {% block livesale %} {% endblock livesale %}
     {% block main-content %} {% endblock main-content %}
 
-  </div>
-  <!-- Start Footer -->
-  <br><br><br><br><br>
-  
-
-    
-        
-   
-      
-          
-          <div class=" bg-success text-white " id="footer" style="text-align:center; width: 100%;">
-            <h6 class="mt-3"><strong>Call Our Support Team 24*7: </strong></h6>
-            <h4><strong> +91 6399550000</strong></h4>
-          </div>
-          
-      <section id="contact">
-        <div class="contact container-fluid bg-dark" >
-
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="contact-items">
-              <div class="contact-item">
-                <div class="icon"></div>
-                  <div class="contact-info text-white">
-                      
-                    <h4>Branch Office: <h6>Puspa Place, Prabhat Chauraha,Sector I,<br>
-                      Sec.I, Jankipuram, Lucknow,<br> Uttar Pradesh 220021<br>
-                      <h6>Email:</h6>info@yantraeducare.com<br>
-                      <h6>Phone:</h6>
-                      +91 6399011111<br>
-                      +91 6399550000
-                      </h6>
-                    </h4>
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
 
 
-            <div class="col-sm-3">
-              <div class="contact-item">
-                    <div class="icon"></div>
-                      <div class="contact-info">
-                       <h4 class="text-white"> Become an Affiliate</h4><br>
-                       <p class="text-white">Affiliate Registration</p>
-                       <p class="text-white">Affiliate Login</p>
-                       <p class="text-white">Affiliate Dashboard</p>
-                       <p class="text-white">Affiliate Terms & Conditions</p>
-                      </div>
-                    </div>
-               </div>
+  <div class="bgded overlay row4" style="background-image:url('images/demo/backgrounds/01.png');">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <figure id="ctdetails">
+      <ul class="nospace group">
+        <li class="one_third first">
+          <div class="clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong>  +91 6399011111<br>
+                      +91 6399550000</span></div>
+        </li>
+        <li class="one_third">
+          <div class="clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Send us a mail:</strong>info@yantraeducare.com</span></div>
+        </li>
+        <li class="one_third">
+          <div class="clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Come visit us:</strong> Directions to <a href="#">our location</a></span></div>
+        </li>
+      </ul>
+    </figure>
+    <!-- ################################################################################################ -->
+    <div class="one_quarter first">
+      <h1 class="logoname"><a href="index.html">YantraEdu<span>Care</span></a></h1>
+      <p>Laoreet diam orci elementum urna sed tincidunt lacus sapien pulvinar erat sed aliquet dictum turpis sed sollicitudin felis non sapien praesent blandit mauris vel erat fusce sit amet lacus [<a href="#">&hellip;</a>]</p>
+      <ul class="faico clear">
+        <li><a class="faicon-facebook" href="https://www.facebook.com/Yantra-Educare-105729881627246"><i class="fab fa-facebook"></i></a></li>
+        <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+        <li><a class="faicon-twitter" href="https://twitter.com/EducareYantra"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Contact us</h6>
+      <p class="nospace btmspace-15">For Contact us for any support or any query please fill the form we will contact you soon</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Newsletter:</legend>
+          <input class="btmspace-15" type="text" value="" placeholder="Name">
+          <input class="btmspace-15" type="text" value="" placeholder="Email">
+          <button class="btn" type="submit" value="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Policy</h6>
+      <ul class="nospace linklist">
+        <li><a href="{% url 'privacypolicy' %}" >Privacy Policy</a>
+        <li><a href="{% url 'termsandconditions' %}" >Terms & Conditions</a></li>
 
-            <div class="col-sm-3">
-                <div class="contact-item">
-                      <div class="icon"></div>
-                        <div class="contact-info">
-                          <h4 class="text-white">Important Links</h4><br>
-                          <a href="{% url 'privacypolicy' %}"><p class="text-white">Privacy Policy</p></a>
-                          <p class="text-white">Refund Policy</p>
-                          <a href="{% url 'termsandconditions' %}"><p class="text-white">Terms & Conditions</p></a>
-                          </div>
-                      </div>
-                 </div>
-            
-
-        <div class="col-sm-3">
-            <div class="contact-item">
-              <div class="icon"></div>
-                    <div class="contact-info">
-                        <h4 class="text-white">Connect with us on Social Media</h4><br>
-                        <div style="font-size:30px;">
-                          <a href="https://www.facebook.com/Yantra-Educare-105729881627246" style="text-decoration:none;" class="my-3 mx-2 text-white" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
-                          <a href="https://instagram.com/yantraeducare?igshid=qiue0dorhhrn" class="my3 mx-2 text-white" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
-                          <a href="https://twitter.com/EducareYantra" class="my-3 mx-2 text-white" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
-                          <a href="https://www.youtube.com/channel/UCghMHfCgONkzspYLB6PLbqw" class="my-3 mx-2 text-white" target="_blank"><i class="fab fa-youtube"></i></i></a>
-                        </div>
-                        <br>
-                        <h6 class="text-white">Newsletter</h6>
-                        <input type="text" value="Email ID"><br><br>
-                       <button type="submit" class="btn-primary">Submit</button>
-                    </div>
-              </div>
-           </div>
-          </div>
-        </div>
-      
-      </div>
-  </section>
-  <footer class="container-fluid bg-dark text-center p-2 mt-1">
-      <small class="text-white">Copyright &copy; 2021  </small>
-      <img src="{% static 'app/images/payment.png' %}" alt="" srcset="" class="img-fluid" height="2px">
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Libero pretium luctus</h6>
+      <ul class="nospace clear latestimg">
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+        <li><a class="imgover" href="#"><img src="{% static 'images/demo/100x100.png' %}" alt=""></a></li>
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
   </footer>
-   <!-- End Footer -->
-    <!-- copy to clipboared -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
-
-
-    <script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy;  - <a href="#">YantraEduCare</a></p>
+    <p class="fl_right">About YantraEduCare <a target="_blank" href="{% url 'aboutus' %}" title="Concept">About Us</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
       function copyToClipboard(element) {
       var $temp = $("<input>");
       $("body").append($temp);
       $temp.val($(element).text()).select();
       document.execCommand("copy");
       $temp.remove();
-    }
-    </script>
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+      }
+</script>
 
-    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'app/js/all.min.js' %}"></script>
-    <script src="{% static 'app/js/myscript.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+<script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'app/js/all.min.js' %}"></script>
+<script src="{% static 'app/js/myscript.js' %}"></script>
+
+<script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.backtotop.js'%}"></script>
+<script src="{% static 'layout/scripts/jquery.mobilemenu.js'%}"></script>
+<!-- Homepage specific -->
+<script src="{% static 'layout/scripts/jquery.easypiechart.min.js' %}"></script>
+<!-- / Homepage specific -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</body>
+
 </html>

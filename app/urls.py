@@ -29,6 +29,7 @@ urlpatterns = [
     path('school_home/<int:pk>',school_home.as_view(),name='school_home'),
     path('school_form/',views.school_form,name='school_form'),
     path("all_school",views.all_school,name='all_school'),
+    path('registrationpg/',views.registrationpg,name='registrationpg'),
 
     # path('success/',views.success_mail,name='success'),
 #CART START

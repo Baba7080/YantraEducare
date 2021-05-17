@@ -632,6 +632,8 @@ def checkout(request):
         totalamount = amount + shipping_amount
 
     return render(request, 'app/checkout.html',{'add':add,'totalamount':totalamount,'cart_items':cart_items})
+def registrationpg(request):
+    return render(request, 'app/senddd/registrationspg.html')
 
 
 @login_required
@@ -729,7 +731,7 @@ def cat_sel(request):
                         'to_email':to_email,
                     })
 
-            print('starttttt')
+    
         email = EmailMessage(
                                 mail_subject, message, to=[to_email]
             )

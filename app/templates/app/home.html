@@ -1,144 +1,241 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Home{% endblock title %}
-
+{% load crispy_forms_tags %}
+{% block title %}Profile{% endblock title %}
 {% block banner_slider %}
-<!--Banner Slider-->
- <div id="carouselExampleControls" class="carousel slide mt-5" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static 'app/images/baraatimages/one.jpeg' %}" class="d-block w-100" height="550px" width="500px" alt="..."> 
+ <div class="wrapper overlay">
+    <div id="pageintro" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <article>
+        <p>Education gives you a wing </p>
+        <h3 class="heading">Educare fill your every need at your profile</h3>
+        <p>YantraEduCare provide you a online Courses from where you can secure your future. Success means Education</p>
+        <footer>
+          <ul class="nospace inline pushright">
+            <li><a class="btn" href="{% url 'all_school' %}">School/Collages</a></li>
+            <li><a class="btn inverse" href="{% url 'course_home' %}">Courses</a></li>
+          </ul>
+        </footer>
+      </article>
+      <!-- ################################################################################################ -->
     </div>
-    <div class="carousel-item">
-      <img src="{% static 'app/images/baraatimages/two.jpeg' %}" class="d-block w-100" height="550px" width="500px" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'app/images/baraatimages/three.jpeg' %}" class="d-block w-100" height="550px" width="500px" alt="...">
-    </div>
-    {% comment %} <div class="carousel-item">
-      <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="...">
-    </div> {% endcomment %}
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </a>
+  <!-- ################################################################################################ -->
 </div>
-<!-- End Banner Slider -->
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <section id="introblocks">
+      <ul class="nospace group elements elements-three">
+        <li class="one_third">
+          <article>
+            <footer><a href="#"><i class="fas fa-balance-scale"></i></a></footer>
+            <h6 class="heading">Nunc pretium consequat</h6>
+            <p>Orci pellentesque ullamcorper pulvinar arcu proin tempor.</p>
+          </article>
+        </li>
+        <li class="one_third">
+          <article>
+            <footer><a href="#"><i class="fas fa-basketball-ball"></i></a></footer>
+            <h6 class="heading">Sapien nulla pellentesque</h6>
+            <p>Orci vestibulum adipiscing blandit eros nisl suscipit.</p>
+          </article>
+        </li>
+        <li class="one_third">
+          <article>
+            <footer><a href="#"><i class="fas fa-beer"></i></a></footer>
+            <h6 class="heading">Tortor sed nibh etiam</h6>
+            <p>Diam ac tincidunt mauris augue ut dolor nam semper ipsum.</p>
+          </article>
+        </li>
+        <li class="one_third">
+          <article>
+            <footer><a href="#"><i class="fas fa-blind"></i></a></footer>
+            <h6 class="heading">Nunc amet placerat</h6>
+            <p>Et purus suspendisse sed quam donec vitae massa nunc.</p>
+          </article>
+        </li>
+        <li class="one_third">
+          <article>
+            <footer><a href="#"><i class="fas fa-bus"></i></a></footer>
+            <h6 class="heading">Pulvinar hac habitasse</h6>
+            <p>Lorem diam rhoncus aliquet lacinia sit amet sodales nec.</p>
+          </article>
+        </li>
+        <li class="one_third">
+          <article>
+            <footer><a href="#"><i class="fas fa-cut"></i></a></footer>
+            <h6 class="heading">Nunc tempor gravida</h6>
+            <p>Tellus ut nec lacus et felis porta cursus ut ultricies.</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
+  <section id="services" class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="nospace font-xs">Lacus ligula tincidunt consectetuer</p>
+      <h6 class="heading font-x2">Integer mattis ligula ipsum</h6>
+    </div>
+    <ul class="nospace group elements elements-three">
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-credit-card"></i></a></footer>
+            <h6 class="heading">Donec ullamcorper nisi lectus curabitur</h6>
+          </div>
+          <p>Aliquam id imperdiet nec odio proin luctus consequat est phasellus sed libero vitae turpis dignissim varius nullam eu tellus aenean sit amet risus fusce.</p>
+          <p><a href="#">Varius cursus ante</a></p>
+        </article>
+      </li>
+      {% comment %} <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-compress"></i></a></footer>
+            <h6 class="heading">Ultrices posuere cubilia curae feugiat</h6>
+          </div>
+          <p>Sit amet augue lobortis risus imperdiet blandit nullam vitae dui fusce gravida sem ac auctor eleifend sapien dui convallis erat a cursus velit diam et.</p>
+          <p><a href ="#">Morbi at lorem ut</a></p>
+        </article>
+      </li> {% endcomment %}
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-futbol"></i></a></footer>
+            <h6 class="heading">Ipsum primis faucibus in orci luctus et</h6>
+          </div>
+          <p>Urna suspendisse suscipit metus vel sem integer porta in hac habitasse platea dictumst aliquam quis nunc aenean augue proin molestie erat in rhoncus.</p>
+          <p><a href="#">Molestie ultricies quam</a></p>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-fire-extinguisher"></i></a></footer>
+            <h6 class="heading">Nec sem donec ut augue vestibulum ante</h6>
+          </div>
+          <p>Posuere nibh quam consectetuer lectus ac vulputate ligula lorem ut dolor morbi ut risus nec orci bibendum commodo integer sem nisl mollis ut ornare eu.</p>
+          <p><a href="#">Aenean tincidunt turpis</a></p>
+        </article>
+      </li>
+      {% comment %} <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-medkit"></i></a></footer>
+            <h6 class="heading">Commodo elit eget erat tellus nullam</h6>
+          </div>
+          <p>Lobortis eget ante mauris tempor suspendisse nulla donec tincidunt tellus ac quam in eget risus phasellus faucibus adipiscing velit maecenas volutpat.</p>
+          <p><a href="#">Vel ante donec tortor</a></p>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-recycle"></i></a></footer>
+            <h6 class="heading">Orci nulla sit amet lorem curabitur</h6>
+          </div>
+          <p>Aliquam leo aliquam at odio mauris egestas interdum magna libero vivamus malesuada adipiscing sapien morbi arcu pharetra eu interdum quis blandit ac.</p>
+          <p><a href="#">Neque placerat eget</a></p>
+        </article>
+      </li> {% endcomment %}
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+{% comment %} <div class="wrapper row2">
+  <section class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="nospace font-xs">Dolor a justo ut eget nibh velit</p>
+      <h6 class="heading font-x2">Iaculis cras non urna mauris</h6>
+    </div>
+    <ul class="pr-charts nospace group center">
+      <li class="pr-chart-ctrl" data-animate="false">
+        <div class="pr-chart" data-percent="25"><i></i></div>
+        <p><a class="btn" href="#">Tristique</a></p>
+      </li>
+      <li class="pr-chart-ctrl" data-animate="false">
+        <div class="pr-chart" data-percent="50"><i></i></div>
+        <p><a class="btn" href="#">Ullamcorper</a></p>
+      </li>
+      <li class="pr-chart-ctrl" data-animate="false">
+        <div class="pr-chart" data-percent="75"><i></i></div>
+        <p><a class="btn" href="#">Curabitur</a></p>
+      </li>
+      <li class="pr-chart-ctrl" data-animate="false">
+        <div class="pr-chart" data-percent="100"><i></i></div>
+        <p><a class="btn" href="#">Ultrices</a></p>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div> {% endcomment %}
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+
+
+<div class="wrapper row3">
+  <section class="hoc container clear shout"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="nospace font-xs">Educare auctor  non nisl mauris</p>
+      <h6 class="heading font-x2">Vitae viverra nam sodales</h6>
+    </div>
+{% comment %} {% for ad in school %}
+    <figure class="one_half first"><img src="{{ ad.class_pic1.url }}" alt="">
+      <figcaption class="heading"><a href="#">{{ad.School_name}}</a></figcaption>
+    </figure>
+    <figure class="one_half"><img src="{{ ad.class_pic1.url }}" alt="">
+      <figcaption class="heading"><a href="#">{{ad.School_name}}</a></figcaption>
+    </figure>
+{% endfor %} {% endcomment %}
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper coloured">
+  <article id="cta" class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <p>Sit amet condimentum</p>
+    <h6 class="heading"><span>&ldquo;</span>Integer blandit massa<span>&bdquo;</span></h6>
+    <footer><a class="btn" href="#">Consectetuer dapibus</a></footer>
+    <!-- ################################################################################################ -->
+  </article>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- JAVASCRIPTS -->
+<script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+<!-- Homepage specific -->
+<script src="{% static 'layout/scripts/jquery.easypiechart.min.js' %}"></script>
 {% endblock banner_slider %}
-<br><br>
-{% block livesale %}
-<!-- Live Sale Section -->
-<div class="container">
-  <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
-    <h1>SALE IS LIVE NOW</h1>
-    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
-    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
-  </div>
-</div> 
-<br><br>
-<!-- End Live Sale Section -->
-{% endblock livesale %}
-
-{% block main-content %}
-
-
-<font color="RED"><marquee behavior="scroll" direction="left" style="background:YELLOW" scrollamount="20" height="100%">Education  Gives you a wing</marquee></font>
-<!-- 1st Product Slider -->
-<div class="m-3">
- <h2>Random Product for sale</h2>
- <!-- Slider 1 -->
- <div class="owl-carousel" id="slider1">
-  {% for b in bottomwears %}
-  <a href="{% url 'product-detail' b.id %}" class="btn"><div class="item">
-    <img src="{{b.product_image.url}}" alt="" height="200px">
-    <span class="fw-bold"></span>{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div></a>
-  {% endfor %}
-</div>
-<!-- End 1st Product Slider -->
-
-<!-- Payment Info Section -->
-<div class="container my-5">
- <div class="row">
-  <div class="col-sm-3">
-   <div class="card mb-3">
-     <div class="card-body">
-     <img src="{% static 'app/images/pabaraatimages/main.jpg' %}" alt="" srcset="" class="img-fluid">
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3">
-   <div class="card mb-3">
-     <div class="card-body">
-      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3">
-   <div class="card mb-3">
-     <div class="card-body">
-      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3">
-   <div class="card mb-3">
-     <div class="card-body">
-      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
-     </div>
-   </div>
-  </div>
- </div>
-</div>
-<!-- End Payment Info Section -->
-
-<!-- 2nd Product Slider -->
-<div class="mx-3">
- <h2>Affiliate</h2>
- <!-- Slider 2 -->
- <div class="owl-carousel" id="slider2">
-  {% for ad in add %}
-  <div class="col-sm-9 col-lg-3 my-5 mx-2">
-   <div class="card" style="width: 18rem;">
-    <div class="card-body" >
-     <!-- <h3> {{forloop.counter}}</h3> -->
-     <!-- <img src="{{ ad.image }}"> -->
-     <!-- <img src="url('% static '{{ad.image}}' %')
-      " alt="" srcset="" > -->
-      <p><img  src="{{ad.image.url}}" class="d-block w-100" style="height": 70%; width: 55%;></p>
-      <p><center><h5>{{ad.user}}</h5></center></p>
-      <p>City: {{ad.city}}</p>
-      <p>Bio: {{ad.bio}}</p>
-     <!-- <p>Image: {{ad.image}}</p>
-     <p><h5>{{ad.user}}</h5></p>
-     <p>Bio: {{ad.bio}}</p> -->
-     
-   
-      <br>
-    </div>
-   </div>
-  </div>
-{% endfor %}
- </div>
-</div>
-<!-- End 2nd Product Slider -->
-
-<!--3rd Product Slider -->
-<div class="mx-3">
-  <h2>mobile</h2>
-  <!-- Slider 3 -->
-  <div class="owl-carousel" id="slider3">
-   {% for m in mobiles %}
-   <a href="{% url 'product-detail' m.id %}" class="btn"><div class="item">
-     <img src="{{m.product_image.url}}" alt="" height="200px">
-     <span class="fw-bold"></span>{{m.title}}</span><br><span class="fs-5">Rs. {{m.discounted_price}}</span></div></a>
-   {% endfor %}
-  </div>
- </div>
- <!-- End 3rd Product Slider -->
-{% endblock main-content %}
-
+<!-- / Homepage specific -->
+</body>
+</html>
